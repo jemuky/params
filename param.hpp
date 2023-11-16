@@ -233,6 +233,7 @@ public:
         return check_rule();
     }
     const std::string& get_exe_path() { return exe_path_; }
+    const std::string& get_app_name() { return app_name_; }
 
     bool exists(const std::string& long_param) { return !check_param(long_param); }
 };
