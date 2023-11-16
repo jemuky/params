@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
     using namespace params;
     params::set_log_lev(LogLevel::Debug);
     // args.set_param({"123", "daf"});
-    args.set_rule("--exist", "", "", true);
+    args.set_rule("--exist", "", "true", "", true);
     DEBUG(args.exists("--exist"));
     if (!args.analyze(argc, argv)) {
         return 1;

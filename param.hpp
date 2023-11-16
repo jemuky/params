@@ -13,12 +13,13 @@ struct __Param {
     bool must_enter_;
 
     __Param(const std::string& long_param, const std::string& short_param = "",
-            const std::string& help = "", bool must_enter = false)
+            const std::string& default_value = "", const std::string& help = "",
+            bool must_enter = false)
         : lparam_(long_param),
           sparam_(short_param),
           help_text_(help),
           must_enter_(must_enter),
-          value_(nullptr) {
+          value_(default_value.size() == 0 ? nullptr : new std::string(default_value)) {
         assert(long_param.size() > 0);
     }
     ~__Param() {
@@ -206,10 +207,13 @@ public:
         return false;
     }
 
-    // 设置所需参数: 长参、短参、帮助信息、是否必传
+    // 设置所需参数: 长参、短参、参数默认值(若长度为0不设默认值)、帮助信息、是否必传
     bool set_rule(const std::string& long_param, const std::string& short_param = "",
-                  const std::string& help = "", bool must_enter = false) {
-        __Param* p = new __Param(long_param, short_param, help, must_enter);
+                  const std::string& default_value = "", const std::string& help = "",
+                  bool must_enter = false) {
+        if (!check_param(long_param)) return false;
+
+        __Param* p = new __Param(long_param, short_param, default_value, help, must_enter);
         vparam_.emplace_back(std::move(p));
         return true;
     }
