@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 
-#include "log.hpp"
+#include "base.h"
 
 namespace params {
 static std::string trim(const std::string& str, char sep) {

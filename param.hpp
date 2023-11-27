@@ -1,7 +1,6 @@
 #pragma once
 
 #include "base.h"
-#include "log.hpp"
 #include "str_util.hpp"
 
 namespace params {

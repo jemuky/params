@@ -1,13 +1,11 @@
 解析cpp命令行参数
 
-# use
+# Usage
 
 ```cpp
 #include "param.hpp"
 
 using namespace params;
-// 设置日志等级，默认debug
-set_log_lev(LogLevel::Debug);
 
 Args args;
 // 设置参数限制(长参、短参、参数默认值(若长度为0不设默认值)、帮助信息、是否必传)
