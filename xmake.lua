@@ -30,7 +30,7 @@ end
 package('log')
     -- github或gitee中"下载zip"复制链接地址
     add_urls('https://github.com/jymk/log/archive/refs/heads/main.zip')
-    add_versions('0.0.1', '40897eb1b84147db03e33b09e9f3db130668c7100fcf8a886e463b8e8a4ca781')
+    add_versions('0.0.1', 'a6805d4e59d8fb3e5450827c0d286c15763849ec3f3530f2cc028f9355f57084')
 
     set_cachedir(path.join(os.projectdir(), '3rd_download', 'log'))
 
