@@ -37,8 +37,9 @@ package('log')
     download_git_zip()
 
     on_install(function(package)
-        local cpfile = path.join(package:cachedir(), 'source', 'log')
         os.cp('*.hpp', '$(projectdir)/build/incs/')
+        os.cd(package:cachedir())
+        os.rmdir('source')
     end)
 package_end()
 
