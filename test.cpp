@@ -1,8 +1,8 @@
 
-#include "param.hpp"
+#include "param.h"
 
 int main(int argc, char* argv[]) {
-    set_log_lev(LogLevel::Debug);
+    Log::set_log_lev(LogLevel::Debug);
 
     params::Args args;
     using namespace params;

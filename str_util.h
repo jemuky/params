@@ -26,6 +26,7 @@ static std::vector<std::string> split_space(const std::string& str) {
     }
     return tokens;
 }
+
 static std::vector<std::string> split(const std::string& str, const std::string& sep) {
     size_t seplen = sep.size();
 
@@ -49,7 +50,6 @@ static std::vector<std::string> split(const std::string& str, const std::string&
     }
     return res;
 }
-
 static std::pair<std::string, std::string> split_two_part(const std::string& str, char sep) {
     std::string prefix;
     std::string suffix;
@@ -67,4 +67,5 @@ static bool str_to_t(const std::string& str, T& t) {
     std::istringstream iss(str);
     return (iss >> t) ? true : false;
 }
+
 } // namespace params

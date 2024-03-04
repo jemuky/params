@@ -1,4 +1,4 @@
-function download_git_zip()
+function download_archive()
     on_download(function (package, opt)
         import("net.http")
         import("utils.archive")
@@ -27,23 +27,27 @@ function download_git_zip()
     end)
 end
 
-package('log')
+package('ext_log')
+    set_homepage('https://github.com/jymk/log')
+    set_license('MIT')
+
     -- github或gitee中"下载zip"复制链接地址
-    add_urls('https://github.com/jymk/log/archive/refs/heads/main.zip')
-    add_versions('0.0.1', 'a6805d4e59d8fb3e5450827c0d286c15763849ec3f3530f2cc028f9355f57084')
+    add_urls('https://github.com/jymk/log/archive/refs/tags/v0.0.1.tar.gz')
+    add_versions('v0.0.1', '67a7dcd75960756a18cdfe991d84e40bd00b716ab5fea42a0ed64fd46a507452')
 
     set_cachedir(path.join(os.projectdir(), '3rd_download', 'log'))
 
-    download_git_zip()
+    download_archive()
 
     on_install(function(package)
-        os.cp('*.hpp', '$(projectdir)/build/incs/')
+        os.cp('log.h', '$(projectdir)/build/incs/')
+        os.cp('log.cpp', '$(projectdir)/build/src/')
         os.cd(package:cachedir())
         os.rmdir('source')
     end)
 package_end()
 
-add_requires('log')
+add_requires('ext_log')
 
 target('params')
     set_kind('binary')
@@ -56,4 +60,5 @@ target('params')
         add_cxflags('/utf-8')
     end
 
-    add_files('*.cpp')
+    add_files('build/src/*.cpp', '*.cpp')
+    remove_files('str_util.cpp')
