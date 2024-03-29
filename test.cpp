@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     // for (const auto& vv : v) {
     //     DEBUG("vv=", vv);
     // }
-    std::cout << args.exists({"123"}) << "\t" << args.exists({"456"}) << "\t"
-              << args.exists({"4564"}) << "\t" << args.exists({"daf"}) << std::endl;
+    DEBUG("exist --exist?: ", args.exists({"--exist"}), "\texist 456?: ", args.exists({"456"}),
+          "\texist 4564?: ", args.exists({"4564"}), "\texist daf?: ", args.exists({"daf"}))
     return 0;
 }

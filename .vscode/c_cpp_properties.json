@@ -3,10 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/build/incs",
-                "${vcpkgRoot}/x64-windows/include",
-                "${vcpkgRoot}/x64-windows-static/include",
-                "${vcpkgRoot}/x86-windows/include",
+                "${workspaceFolder}/build/incs"
             ],
             "defines": [
                 "_DEBUG",

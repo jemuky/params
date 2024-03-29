@@ -28,12 +28,12 @@ function download_archive()
 end
 
 package('ext_log')
-    set_homepage('https://github.com/jymk/log')
+    set_homepage('https://github.com/jemuky/log')
     set_license('MIT')
 
     -- github或gitee中"下载zip"复制链接地址
-    add_urls('https://github.com/jymk/log/archive/refs/tags/v0.0.1.tar.gz')
-    add_versions('v0.0.1', '67a7dcd75960756a18cdfe991d84e40bd00b716ab5fea42a0ed64fd46a507452')
+    add_urls('https://github.com/jemuky/log/archive/refs/tags/v0.0.1.tar.gz')
+    add_versions('v0.0.1', '699c32dd66f5da4280a6119324da6ded858c44743c4548829e5ee2b2c133686e')
 
     set_cachedir(path.join(os.projectdir(), '3rd_download', 'log'))
 
@@ -49,9 +49,9 @@ package_end()
 
 add_requires('ext_log')
 
-target('params')
+target('params_test')
     set_kind('binary')
-    set_languages('cxx11')
+    set_languages('cxx17')
 
     add_includedirs('build/incs')
     
@@ -61,4 +61,4 @@ target('params')
     end
 
     add_files('build/src/*.cpp', '*.cpp')
-    remove_files('str_util.cpp')
+target_end()

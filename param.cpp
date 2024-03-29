@@ -72,15 +72,14 @@ bool params::Args::__check_rule() {
 
 params::Args::~Args() {
     for (auto& pp : __vparam_) {
-        if (pp) {
-            delete pp;
-        }
+        if (pp) delete pp;
     }
 }
 
 void params::Args::usage() {
-    std::string help_info = "\nUsage: " + __app_name_ +
-                            " [bool argment] [bool argment]=[true/false] [argument]=[value]...\n";
+    std::string help_info =
+        "\nUsage: " + __app_name_ +
+        " [bool argment(true)] [bool argment]=[true/false] [argument]=[value]...\n";
     for (const auto& p : __vparam_) {
         help_info.append(p->help());
     }
