@@ -6,6 +6,6 @@ if %ERRORLEVEL% neq 0 (
     exit /b
 )
 
-build\windows\x64\release\params_test.exe --exist
+build\windows\x64\release\params_test.exe --exist=false
 
 echo.

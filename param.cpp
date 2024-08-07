@@ -83,7 +83,8 @@ void params::Args::usage() {
     for (const auto& p : __vparam_) {
         help_info.append(p->help());
     }
-    INFO(help_info);
+
+    std::cout << (help_info) << std::endl;
 }
 
 bool params::Args::check_param(const std::string& long_param) {

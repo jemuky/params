@@ -129,6 +129,7 @@ public:
     const std::string& get_exe_path();
     const std::string& get_app_name();
 
+    // 参数是否在设置中存在(非参数列表)
     bool exists(const std::string& long_param);
 };
 
